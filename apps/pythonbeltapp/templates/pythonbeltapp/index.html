@@ -10,7 +10,49 @@
 <script src="{% static 'pythonbeltapp/js/main.js' %}" > </script>
 </head>
 <body>
-  <h1>Hello World</h1>
-  <div class="line"><span class="text html basic"><span>{{somekey}}</span></span></div>
+  <h1>Welcome! {{request.session.username}}</h1>
+  <p><a href="{% url 'loginreg:logout' %}">Logout</a></p>
+  <h2>Your Trip Schedules</h2>
+  <table>
+    <tr>
+      <th>Destination</th>
+      <th>Travel Start Date</th>
+      <th>Travel End Date</th>
+      <th>Plan</th>
+    </tr>
+  {% for trip in trips %}
+    <tr>
+      <td><a href="{% url 'pythonbeltapp:show' trip_id=trip.id%}">{{trip.destination}}</a></td>
+      <td>{{trip.trip_begin}}</td>
+      <td>{{trip.trip_end}}</td>
+      <td>{{trip.description}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <h2>Other User's Travel Plans</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Destination</th>
+      <th>Travel Start Date</th>
+      <th>Travel End Date</th>
+      <th>Do You Want to Join?</th>
+    </tr>
+  {% for trip in trips %}
+    <tr>
+      <td>{{trip.user.name}}</td>
+      <td><a href="{% url 'pythonbeltapp:show' trip_id=trip.id%}">{{trip.destination}}</a></td>
+      <td>{{trip.trip_begin}}</td>
+      <td>{{trip.trip_end}}</td>
+      <td><a href="#">Join</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+
+  <p><a href="{% url 'pythonbeltapp:add' %}">Add Travel Plan</a></p>
+
 </body>
+</html>
+
 </html>

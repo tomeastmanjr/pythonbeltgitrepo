@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Plan</title>
+  {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'pythonbeltapp/css/style.css' %}"media="screen" title="no title"  charset="utf-8">
+<script src="{% static 'pythonbeltapp/js/main.js' %}" > </script>
+</head>
+<body>
+  <div id="top">
+    <a href="{% url 'pythonbeltapp:index' %}">Home</a>
+    <a href="{% url 'loginreg:logout' %}">Logout</a>
+  </div>
+  <p></p>
+  <h3>Add a trip</h3>
+  <div id="add_trip">
+    <form action="{% url 'pythonbeltapp:create' %}" method="POST">
+      {% csrf_token %}
+      <label for="destination">Destination:</label>
+      <input type="text" name="destination">
+      <p></p>
+      <label for="description">Description:</label>
+      <input type="text" name="description">
+      <p></p>
+      <label for="trip_begin">Travel Date From:</label>
+      <input type="date" name="trip_begin">
+      <p></p>
+      <label for="trip_end">Travel Date To:</label>
+      <input type="date" name="trip_end">
+      <p></p>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+
+
+</body>
+</html>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Destination</title>
+  {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'pythonbeltapp/css/style.css' %}"media="screen" title="no title"  charset="utf-8">
+<script src="{% static 'pythonbeltapp/js/main.js' %}" > </script>
+</head>
+<body>
+  <div id="top">
+    <a href="{% url 'pythonbeltapp:index' %}">Home</a>
+    <a href="{% url 'loginreg:logout' %}">Logout</a>
+  </div>
+<div id="destination">
+  <h3>{{trip.destination}}</h3>
+    <p>Planned By: {{trip.user.name}}</p>
+    <p>Description: {{trip.description}}</p>
+    <p>Travel Date From: {{trip.trip_begin}}</p>
+    <p>Travel Date To: {{trip.trip_end}}</p>
+  <p></p>
+  <h3>Other users' joining the trip:</h3>
+  {% for user in users %}
+      <p>{{trip.user.name}}</p>
+  {% endfor %}
+</div>
+
+</body>
+</html>
+
+</html>

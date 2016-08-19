@@ -11,7 +11,7 @@ def login(request):
     if user[0]:
         request.session['username']= user[1].username
         request.session['id']= user[1].id
-        return redirect('beltreview:index')
+        return redirect('pythonbeltapp:index')
     messages.add_message(request, messages.SUCCESS, user[1])
     return redirect('loginreg:index')
 
@@ -21,7 +21,7 @@ def register(request):
     if user[0]:
         request.session['username']= user[1].username
         request.session['id']= user[1].id
-        return redirect('beltreview:index')
+        return redirect('pythonbeltapp:index')
     messages.add_message(request, messages.SUCCESS, 'You screwed up!!!')
     return redirect('loginreg:index')
 

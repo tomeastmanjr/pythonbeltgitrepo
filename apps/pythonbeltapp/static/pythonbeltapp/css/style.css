@@ -1,3 +1,12 @@
 h1{
   color: red;
 }
+#destination p{
+  margin-left: 15px;
+}
+#top{
+  margin-left: 500px;
+}
+#add_trip{
+  margin-left: 15px;
+}
