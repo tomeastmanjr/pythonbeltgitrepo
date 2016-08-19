@@ -16,6 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 
 urlpatterns = [
-    url(r'^pba/', include('apps.pythonbeltapp.urls', namespace='pythonbeltapp')),
+    url(r'^travels/', include('apps.pythonbeltapp.urls', namespace='pythonbeltapp')),
     url(r'^', include('apps.loginreg.urls', namespace='loginreg'))
 ]
