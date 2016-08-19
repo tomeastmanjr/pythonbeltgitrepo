@@ -34,7 +34,11 @@
       <input type="submit" value="Add">
     </form>
   </div>
-
+  {% if messages %}
+    {% for message in messages %}
+      <h1>{{message}}</h1>
+    {% endfor %}
+  {% endif %}
 
 </body>
 </html>
