@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Success</title>
+  {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'loginreg/css/style.css' %}"media="screen" title="no title"  charset="utf-8">
+<script src="{% static 'loginreg/js/main.js' %}" > </script>
+</head>
+<body>
+  <div id="container">
+    <h2>Success! Welcome, {{request.session.first_name}}!</h2>
+    <h4>Succesfully registered (or logged in)!</h4>
+    </div>
+    <a href="{% url 'loginreg:logout' %}">Logout</a>
+  </div>
+</body>
+</html>
