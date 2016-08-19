@@ -34,8 +34,9 @@ def create(request):
         messages.add_message(request, messages.SUCCESS, 'Try again')
         return render(request, 'pythonbeltapp/add.html')
 
-# def update(request, trip_id):
-#     user = User.objects.get(id=request.session['id'])
-#     trip1 = Trip.objects.get(id=trip_id)
-#     trip2 = Trip.objects.create(trip=trip1, user=user)
-#     return redirect(reverse('pythonbeltapp:show', kwargs={"trip_id":trip2.id}))
+def update(request, trip_id):
+    user = User.objects.get(id=request.session['id'])
+    trip1 = Trip.objects.get(id=trip_id)
+    trip1.travelers.add(user)
+    trip1.save()
+    return redirect(reverse('pythonbeltapp:show', kwargs={"trip_id":trip1.id}))

@@ -45,7 +45,7 @@
       <td><a href="{% url 'pythonbeltapp:show' trip_id=trip.id%}">{{trip.destination}}</a></td>
       <td>{{trip.trip_begin}}</td>
       <td>{{trip.trip_end}}</td>
-      <td><a href="#">Join</a></td>
+      <td><a href="{% url 'pythonbeltapp:update' trip_id=trip.id%}">Join</a></td>
     </tr>
   {% endfor %}
   </table>

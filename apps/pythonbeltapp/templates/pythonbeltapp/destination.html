@@ -22,8 +22,8 @@
     <p>Travel Date To: {{trip.trip_end}}</p>
   <p></p>
   <h3>Other users' joining the trip:</h3>
-  {% for user in users %}
-      <p>{{trip.user.name}}</p>
+  {% for user in trip.travelers.all %}
+      <p>{{user.name}}</p>
   {% endfor %}
 </div>
 
