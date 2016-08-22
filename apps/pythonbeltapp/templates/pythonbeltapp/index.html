@@ -28,14 +28,6 @@
       <td>{{trip.description}}</td>
     </tr>
   {% endfor %}
-  {% for trip in me2 %}
-  <tr>
-    <td><a href="{% url 'pythonbeltapp:show' trip_id=trip.id%}">{{trip.destination}}</a></td>
-    <td>{{trip.trip_begin}}</td>
-    <td>{{trip.trip_end}}</td>
-    <td>{{trip.description}}</td>
-  </tr>
-{% endfor %}
   </table>
 
   <h2>Other User's Travel Plans</h2>
@@ -49,7 +41,7 @@
     </tr>
   {% for trip in notme %}
     <tr>
-      <td>{{trip.user.name}}</td>
+      <td>{{trip.creator.name}}</td>
       <td><a href="{% url 'pythonbeltapp:show' trip_id=trip.id%}">{{trip.destination}}</a></td>
       <td>{{trip.trip_begin}}</td>
       <td>{{trip.trip_end}}</td>
